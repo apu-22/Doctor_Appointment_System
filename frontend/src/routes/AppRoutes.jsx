@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "../components/PrivateRoute";
 import DoctorProfileSetup from "../pages/DoctorProfileSetup";
 import SlotManager from "../pages/SlotManager";
+import PatientBooking from "../pages/PatientBooking";
 
 // Pages
 import Login from "../pages/Login";
@@ -62,6 +63,15 @@ const AppRoutes = () => {
         element={
           <PrivateRoute role="doctor">
             <SlotManager />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/book"
+        element={
+          <PrivateRoute role="patient">
+            <PatientBooking />
           </PrivateRoute>
         }
       />
