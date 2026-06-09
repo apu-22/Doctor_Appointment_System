@@ -1,20 +1,21 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Component
-import PrivateRoute from '../components/PrivateRoute';
+import PrivateRoute from "../components/PrivateRoute";
+import DoctorProfileSetup from "../pages/DoctorProfileSetup";
+import SlotManager from "../pages/SlotManager";
 
 // Pages
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import PatientDashboard from '../pages/PatientDashboard';
-import DoctorDashboard from '../pages/DoctorDashboard';
-import Unauthorized from '../pages/Unauthorized';
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import PatientDashboard from "../pages/PatientDashboard";
+import DoctorDashboard from "../pages/DoctorDashboard";
+import Unauthorized from "../pages/Unauthorized";
 
 // AppRoutes Component
 const AppRoutes = () => {
   return (
     <Routes>
-
       {/* ── Public Routes  */}
 
       <Route path="/" element={<Navigate to="/login" replace />} />
@@ -47,9 +48,26 @@ const AppRoutes = () => {
         }
       />
 
+      <Route
+        path="/doctor/profile-setup"
+        element={
+          <PrivateRoute role="doctor">
+            <DoctorProfileSetup />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/doctor/slots"
+        element={
+          <PrivateRoute role="doctor">
+            <SlotManager />
+          </PrivateRoute>
+        }
+      />
+
       {/* ── 404  */}
       <Route path="*" element={<Navigate to="/login" replace />} />
-
     </Routes>
   );
 };

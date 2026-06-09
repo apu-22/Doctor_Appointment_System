@@ -17,9 +17,11 @@ app.use(express.json());
 // ─── Routes import 
 const authRoutes = require('./routes/authRoutes');
 
+const doctorRoutes = require('./routes/doctorRoutes');
+
 // ─── API Routes register
 app.use('/api/auth', authRoutes);
- 
+app.use('/api/doctors', doctorRoutes);
 
 //testing
 app.get('/', (req, res) => {
