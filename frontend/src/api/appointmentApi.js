@@ -1,5 +1,4 @@
 import api from './axios';
-
 export const getAvailableSlots = async (doctorId, date) => {
   const response = await api.get(
     '/appointments/available-slots',
