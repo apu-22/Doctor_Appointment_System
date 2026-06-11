@@ -1,6 +1,5 @@
 // jsonwebtoken import for token verification
-const jwt = require('jsonwebtoken');
-
+const jwt = require("jsonwebtoken");
 
 //verifyToken middleware function
 const verifyToken = (req, res, next) => {
@@ -8,18 +7,19 @@ const verifyToken = (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
-      return res.status(401).json({ 
-        success: false, 
-        message: 'Token is required (please login)' 
+      return res.status(401).json({
+        success: false,
+        message: "Token is required (please login)",
       });
     }
 
-    const token = authHeader.split(' ')[1];
+    // const token = authHeader.split(' ')[1];
+    const token = req.headers.authorization?.split(" ")[1] || req.query.token; 
 
     if (!token) {
-      return res.status(401).json({ 
+      return res.status(401).json({
         success: false,
-        message: 'Token format is invalid' 
+        message: "Token format is invalid",
       });
     }
 
@@ -29,15 +29,14 @@ const verifyToken = (req, res, next) => {
 
     // Call next middleware/controller
     next();
-
   } catch (error) {
-    console.error('Token verify error:', error.message);
+    console.error("Token verify error:", error.message);
 
     return res.status(401).json({
       success: false,
-      message: 'Token is invalid or expired'
+      message: "Token is invalid or expired",
     });
   }
 };
 
-module.exports = { verifyToken };
+module.exports = verifyToken;

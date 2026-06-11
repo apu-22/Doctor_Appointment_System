@@ -6,7 +6,7 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 
 // authMiddleware import
-const { verifyToken } = require('../middleware/authMiddleware');
+const verifyToken = require('../middleware/authMiddleware');
 
 // POST /api/auth/register 
 router.post('/register', authController.register);
