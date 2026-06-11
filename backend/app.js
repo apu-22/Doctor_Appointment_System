@@ -21,10 +21,14 @@ const doctorRoutes = require('./routes/doctorRoutes');
 
 const appointmentRoutes = require('./routes/appointmentRoutes');
 
+const notificationRoutes = require('./routes/notificationRoutes');
+
 // ─── API Routes register
 app.use('/api/auth', authRoutes);
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);
+app.use('/api/notifications', notificationRoutes);
+
 //testing
 app.get('/', (req, res) => {
   res.json({ message: 'MediCare server is running!' });
