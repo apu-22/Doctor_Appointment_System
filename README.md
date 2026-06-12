@@ -449,8 +449,6 @@ This project demonstrates practical implementation of:
 
 B.Sc. in Software Engineering at SUST
 
-Full Stack Web Developer
-
 GitHub: https://github.com/apu-22
 
 Email: mdapurayhan1729@gmail.com
